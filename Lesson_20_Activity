@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class Lesson_20_Activity {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner (System.in);
+		int flag = 1;
+		double north = -91;
+		double south = 91;
+		double west = 181;
+		double east = -181;
+		
+		while(flag == 1){
+			System.out.print("Please enter the latitude: ");
+			double latTemp = scan.nextDouble(); 
+			System.out.print("Please enter the longitude: ");
+			double logTemp = scan.nextDouble();
+			System.out.print("Would you like to enter another location? ");
+			flag = scan.nextInt();
+			
+			if (latTemp > north){
+				north = latTemp;
+			}
+			if (latTemp < south){
+				south = latTemp;
+			}
+			if (logTemp < west){
+				west = logTemp;
+			}
+			if (logTemp > east){
+				east = logTemp;
+			}
+
+		}
+		System.out.println("Farthest North: " + north);
+		System.out.println("Farthest South: " + south);
+		System.out.println("Farthest East: " + east);
+		System.out.println("Farthest West: " + west);
+	}
+
+}
