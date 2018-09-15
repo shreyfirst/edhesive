@@ -1,5 +1,5 @@
 # edhesive
-AP Computer Science A (c9c236) edhesive java coding activities.
+AP Computer Science A edhesive java coding activities.
 
 These files are not actual runnable java executables, but rather this is just a method to store them online for later use.
 
