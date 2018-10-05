@@ -1,0 +1,71 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		System.out.println("Enter message board post: ");
+		Scanner scan = new Scanner (System.in);
+		String msg = scan.nextLine();
+		
+		msg += " ";
+		
+		String user = "";
+		
+		String bad1 = " ^^ ";
+		String bad2 = " qey ";
+		String bad3 = " $ ";
+		
+		int num1 = 0;
+		int num2 = 0;
+		int num3 = 0;
+		
+		System.out.println("Results: ");
+		
+		//gets username
+		for(int i = 1; i <= (msg.length()); i++){
+			String test = msg.substring(i-1, i);
+			if(test.equals(" ")){
+				user += msg.substring(0, i-1);
+				i = msg.length() + 1;
+			}
+		}
+		
+		//tests for ^^
+		for(int i = 4; i <= (msg.length()); i++){
+			String test = msg.substring(i-4, i);
+			test = test.toLowerCase();
+			if(test.equals(bad1)){
+				num1++;
+			}
+		}
+		
+		//tests for qey
+		for(int i = 5; i <= (msg.length()); i++){
+			String test = msg.substring(i-5, i);
+			test = test.toLowerCase();
+			if(test.equals(bad2)){
+				num2++;
+			}
+		}
+		
+		//tests for $
+		for(int i = 3; i <= (msg.length()); i++){
+			String test = msg.substring(i-3, i);
+			test = test.toLowerCase();
+			if(test.equals(bad3)){
+				num3++;
+			}
+		}
+		
+		if(num1 > 0 || num2 > 0 || num3 > 0){
+			System.out.println("BAD");
+			System.out.println(user);
+			System.out.println("^^: " + num1);
+			System.out.println("qey: " + num2);
+			System.out.println("$: " + num3);
+		}else{
+			System.out.println("CLEAN");
+		}
+	}
+
+}
