@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner (System.in);
+		System.out.println("Enter the first String:");
+		String str = scan.nextLine();
+		System.out.println("Enter the pivot String:");
+		String pvt = scan.nextLine();
+		String testg = "";
+		
+		for (int i = pvt.length(); i <= str.length(); i++){
+			
+			String test = str.substring(i-pvt.length(), i);
+			if(test.equals(pvt)){
+				System.out.print(str.substring(i, str.length()));
+				System.out.print(test);
+				System.out.print(str.substring(0, i-pvt.length()));
+				testg += test;
+			}
+		}
+		
+		if(!(testg.equals(pvt))){
+			System.out.println("Error: Pivot String not found.");
+		}
+		
+	}
+
+}
