@@ -1,0 +1,12 @@
+public class Lesson_29_Activity_Two {
+  public static String [] list = {};
+	public static void main(String[] args) {	
+		for(int i = 0; i < list.length; i++) {
+			for(int i2 = (list[i].length()-1); i2 > -1; i2--) {
+				System.out.print(list[i].charAt(i2));
+			}
+			System.out.print("\n");
+		}
+	}
+
+}
