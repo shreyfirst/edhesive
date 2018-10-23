@@ -1,0 +1,15 @@
+public class Lesson_30_Activity { 
+	public static String [] list = {};
+    public static void main(String[] args){
+    	String tmp = "";
+    	for(int i = 0; i < list.length; i++){
+    		for(int a = 0; a < list[i].length(); a++){
+    			if(list[i].charAt(a) != ' '){
+    				tmp += list[i].charAt(a);
+    			}
+    		}
+    		list[i] = tmp;
+    		tmp = "";
+    	}
+    }
+}
