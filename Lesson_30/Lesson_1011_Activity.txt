@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class Lesson_1011_Activity {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner (System.in);
+		String num = scan.nextLine();
+		int sum = 0;
+		
+		int [] ary = new int[num.length()];
+		if(num.length() < 9){
+			for(int i = 0; i < num.length(); i++){
+				ary[i] = num.charAt(i) - '0';
+			}
+		}else{
+			System.out.println("ERROR: Incorrect Octal Format");
+		}
+		
+		for(int i = 0; i < ary.length; i++){
+			if(ary[i] < 8){
+				sum += (int)(ary[ary.length - i - 1] * Math.pow(8, i));
+					
+			}else{
+				System.out.println("ERROR: Incorrect Octal Format");
+				sum = 0;
+				break;
+			}
+		}
+		if(sum != 0){
+			System.out.println(sum);
+		}
+		
+	}
+
+}
