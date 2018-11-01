@@ -1,0 +1,110 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner (System.in);
+		String [] names1 = new String[10000];
+		String [] names2 = new String[10000];
+		int test = 0;
+		int inc = 0;
+		int inc1 = 0;
+		String x;
+		
+		System.out.println("Enter the values for the first array, up to 10000 values, enter 'End' to quit");
+		for(int i = 0; i < 10000; i++){
+			String temp = scan.nextLine();
+			temp = temp.substring(0, 1).toUpperCase() + temp.substring(1, temp.length()).toLowerCase();
+			if(temp.toLowerCase().equals("end")){
+				break;
+			}else{
+				names1[i] = temp;
+			}
+		}
+		
+		System.out.println("\n\nEnter the values for the second array, up to 10000 values, enter 'End' to quit");
+		for(int i = 0; i < 10000; i++){
+			String temp = scan.nextLine().toLowerCase();
+			temp = temp.substring(0, 1).toUpperCase() + temp.substring(1, temp.length()).toLowerCase();
+			if(temp.toLowerCase().equals("end")){
+				break;
+			}else{
+				names2[i] = temp;
+			}
+		}
+		
+		//Prints FIRST array 
+		System.out.println("\nFirst Array");
+		for(int i = 0; i < names1.length; i++){
+			if(names1[i] != null){
+				System.out.print(names1[i] + " ");
+			}else{
+				test += i;
+				break;
+			}
+		}
+		
+		//Prints SECOND array
+		System.out.println("\n\nSecond Array");
+		for(int i = 0; i < names2.length - 1; i++){
+			if(names2[i] != null){
+				System.out.print(names2[i] + " ");
+			}else{
+				test += i;
+				break;
+			}
+		}
+		
+		String [] names3 = new String[test];
+		
+		for(int i = 0; i < names1.length; i++){
+			if(names1[i] != null){
+				names3[i] = names1[i];
+				inc += 1;
+			}
+		}
+		
+		for(int i = 0; i < names2.length; i++){
+			if(names2[i] != null){
+				names3[i + inc] = names2[i];
+				inc1 += 1;
+			}
+		}
+		
+		String flag = "false";
+		
+		for(int i = 0; i <= inc - 2; i++) {
+			if(names1[i + 1].compareTo(names1[i]) < 0) {
+				flag = "true";
+			}
+		}
+		
+		for(int i = 0; i <= inc1 - 2; i++) {
+			if(names2[i + 1].compareTo(names2[i]) < 0) {
+				flag = "true";
+			}
+		}
+		
+		if(flag == "true") {
+			System.out.println("\n\nError: Arrays not in correct order");
+		}
+		
+		//Merged Alphabetical Arranger
+		for(int i = 0; i <= names3.length - 2; i++){
+			if(names3[i + 1].compareTo(names3[i]) < 0){
+				x = names3[i];
+				names3[i] = names3[i + 1];
+				names3[i + 1] = x;
+				i = -1;
+			}
+		}
+		
+		if(flag == "false") {
+			System.out.println("\nMerged Arrays");
+			for(int i = 0; i < names3.length; i++){
+				System.out.print(names3[i] + " ");
+			}
+		}
+	}
+
+}
