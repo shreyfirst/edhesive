@@ -1,0 +1,64 @@
+import java.util.Scanner;
+
+public class Assignment_7 {
+	
+	public static String duplicate(String str){
+		int n = str.length();
+		if(n % 2 == 0){
+			n = n * 2;
+		}
+		String dupStr = "";
+		for(int i = 0; i < str.length(); i++){
+			for(int a = 0; a < n; a++){
+				dupStr += str.substring(i, i + 1);
+			} 
+		}
+		return dupStr;
+	}
+	
+	public static boolean isEdhesivePalindrome(String str){
+		boolean flag = false;
+		str = str.toLowerCase();
+		str = str.replaceAll("4", "a");
+		str = str.replaceAll("3", "e");
+		str = str.replaceAll("0", "o");
+		String tempString = "";
+		
+		for(int i = 0; i < str.length(); i++){
+			tempString += str.charAt(str.length() - (i + 1));
+		}
+		if(str.length() > 3 && str.length() < 15 && str.equals(tempString)){
+			flag = true;
+		}
+		return flag;
+	}
+	
+	public static double numberScramble(double num){
+		if(num < 0){
+			return 0.0;
+		}else{
+			return (Math.sqrt(((num + 5)/2)));
+		}
+	}
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner (System.in);
+		System.out.println("Welcome to the Methods Sampler Platter. Please enter a String to duplicate.");
+		String dupInp = scan.nextLine();
+		System.out.println("The duplicated String is: " + duplicate(dupInp));
+		
+		System.out.println("Next, please enter a String to check for Edhesive Palindromes.");
+		String palInp = scan.nextLine();
+		if(isEdhesivePalindrome(palInp)){
+			System.out.println("Nice, you found an Edhesive Palindrome!");
+		}else{
+			System.out.println("Too bad, that isn't an Edhesive Palindrome.");
+		}
+		
+		System.out.println("Almost done! Please enter a number to scramble.");
+		double num = scan.nextDouble();
+		System.out.println("The scrambled number is: " + numberScramble(num));
+	}
+}
+
+
