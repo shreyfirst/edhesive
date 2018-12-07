@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Assignment_7 {
+public class Main {
 	
 	public static String duplicate(String str){
 		int n = str.length();
